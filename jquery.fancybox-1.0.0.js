@@ -287,6 +287,7 @@
 			$("#fancy_content").hide().empty();
 			$("#fancy_overlay,#fancy_bigIframe").fadeOut("fast").remove();
 		}
+		opts.itemNum = null;
 	};
 
 	$.fn.fancybox.showLoading = function() {
