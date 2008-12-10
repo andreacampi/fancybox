@@ -93,7 +93,7 @@
 	};
 
 	$.fn.fancybox.changeItem = function(n) {
-		if (opts.showLoading) {
+		if (opts.itemArray[n].o.showLoading) {
 			$.fn.fancybox.showLoading();
 		}
 
