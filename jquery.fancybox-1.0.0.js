@@ -93,7 +93,9 @@
 	};
 
 	$.fn.fancybox.changeItem = function(n) {
-		$.fn.fancybox.showLoading();
+		if (opts.showLoading) {
+			$.fn.fancybox.showLoading();
+		}
 
 		opts.itemNum = n;
 
@@ -379,6 +381,7 @@
 		frameHeight:		400,
 		overlayShow:		false,
 		overlayOpacity:		0.4,
-		itemLoadCallback:	null
+		itemLoadCallback:	null,
+		showLoading:		true, 
 	};
 })(jQuery);
