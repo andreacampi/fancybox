@@ -125,10 +125,11 @@
 
 				$.fn.fancybox.showItem('<img id="fancy_img" src="' + imgPreloader.src + '" />');
 
-			}).attr('src', url + '?rand=' + Math.floor(Math.random() * 999999999) );
+			}).attr('src', url + (opts.itemArray[n].o.random? '?rand=' + Math.floor(Math.random() * 999999999): ""));
 
 		} else {
-			$.fn.fancybox.showItem('<iframe id="fancy_frame" onload="$.fn.fancybox.showIframe()" name="fancy_iframe' + Math.round(Math.random()*1000) + '" frameborder="0" hspace="0" src="' + url + '"></iframe>');
+			$.fn.fancybox.showItem('<iframe id="fancy_frame" onload="$.fn.fancybox.showIframe()" name="fancy_iframe' +
+				(opts.itemArray[n].o.random? Math.round(Math.random()*1000) + '" frameborder="0" hspace="0" src="' + url + '"></iframe>': ""));
 		}
 	};
 
@@ -383,6 +384,7 @@
 		overlayShow:		false,
 		overlayOpacity:		0.4,
 		itemLoadCallback:	null,
-		showLoading:		true, 
+		showLoading:		true,
+		random:				true
 	};
 })(jQuery);
