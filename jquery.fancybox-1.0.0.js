@@ -7,8 +7,8 @@
  * Requires: jQuery v1.2.1 or later
 */
 (function($) {
-	var opts = {}, 
-		imgPreloader = new Image, imgTypes = ['png', 'jpg', 'jpeg', 'gif'], 
+	var opts = {},
+		imgPreloader = new Image, imgTypes = ['png', 'jpg', 'jpeg', 'gif'],
 		loadingTimer, loadingFrame = 1;
 
    $.fn.fancybox = function(settings) {
@@ -69,7 +69,7 @@
 
 		   for (var i = 0; i < opts.itemArray.length; i++) {
 				opts.itemArray[i].o = $.extend({}, o, opts.itemArray[i].o);
-				
+
 				if (o.zoomSpeedIn > 0 || o.zoomSpeedOut > 0) {
 					opts.itemArray[i].orig = tmp;
 				}
@@ -165,16 +165,16 @@
 		var itemTop		= viewportPos[3] + Math.round((viewportPos[1] - itemSize[1]) / 2) - 40;
 
 		var itemOpts = {
-			'left':		itemLeft, 
-			'top':		itemTop, 
-			'width':	itemSize[0] + 'px', 
-			'height':	itemSize[1] + 'px'	
+			'left':		itemLeft,
+			'top':		itemTop,
+			'width':	itemSize[0] + 'px',
+			'height':	itemSize[1] + 'px'
 		}
 
 		if (opts.active) {
 			$('#fancy_content').fadeOut("normal", function() {
 				$("#fancy_content").empty();
-				
+
 				$("#fancy_outer").animate(itemOpts, "normal", function() {
 					$("#fancy_content").append($(val)).fadeIn("normal");
 					$.fn.fancybox.updateDetails();
@@ -215,10 +215,10 @@
 			}
 		 }
 	};
-	
+
 	$.fn.fancybox.resizeItem = function() {
 		val = $("#fancy_img");
-		
+
 		var viewportPos	= $.fn.fancybox.getViewport();
 		var itemSize	= $.fn.fancybox.getMaxSize(viewportPos[0] - 50, viewportPos[1] - 100, opts.itemArray[opts.itemNum].o.frameWidth, opts.itemArray[opts.itemNum].o.frameHeight);
 
@@ -226,10 +226,10 @@
 		var itemTop		= viewportPos[3] + Math.round((viewportPos[1] - itemSize[1]) / 2) - 40;
 
 		var itemOpts = {
-			'left':		itemLeft, 
-			'top':		itemTop, 
-			'width':	itemSize[0] + 'px', 
-			'height':	itemSize[1] + 'px'	
+			'left':		itemLeft,
+			'top':		itemTop,
+			'width':	itemSize[0] + 'px',
+			'height':	itemSize[1] + 'px'
 		}
 
 		$("#fancy_outer").css(itemOpts);
@@ -263,7 +263,7 @@
 		if (opts.itemArray[opts.itemNum].o.inline) {
 			$("#fancy_nav").empty();
 		}
-		
+
 		if (opts.itemNum != 0) {
 			$("#fancy_nav").append('<a id="fancy_left" href="javascript:;"></a>');
 
@@ -274,7 +274,7 @@
 
 		if (opts.itemNum != (opts.itemArray.length - 1)) {
 			$("#fancy_nav").append('<a id="fancy_right" href="javascript:;"></a>');
-			
+
 			$('#fancy_right').click(function(){
 				$.fn.fancybox.changeItem(opts.itemNum + 1); return false;
 			});
@@ -349,7 +349,7 @@
 
 		$("#fancy_loading").css({'left': ((pos[0] - 40) / 2 + pos[2]), 'top': ((pos[1] - 40) / 2 + pos[3])}).show();
 		$("#fancy_loading").bind('click', $.fn.fancybox.close);
-		
+
 		loadingTimer = setInterval($.fn.fancybox.animateLoading, 66);
 	};
 
@@ -371,7 +371,7 @@
 		if (1 /* XXX fancy_wrap has no children */) {
 			$('<div id="fancy_loading"><div></div></div><div id="fancy_outer"><div id="fancy_inner"><div id="fancy_nav"></div><div id="fancy_close"></div><div id="fancy_content"></div><div id="fancy_title"></div></div></div>').appendTo("#fancy_wrap");
 			$('<div id="fancy_bg"><div class="fancy_bg fancy_bg_n"></div><div class="fancy_bg fancy_bg_ne"></div><div class="fancy_bg fancy_bg_e"></div><div class="fancy_bg fancy_bg_se"></div><div class="fancy_bg fancy_bg_s"></div><div class="fancy_bg fancy_bg_sw"></div><div class="fancy_bg fancy_bg_w"></div><div class="fancy_bg fancy_bg_nw"></div></div>').prependTo("#fancy_inner");
-			
+
 			$('<table cellspacing="0" cellpadding="0" border="0"><tr><td id="fancy_title_left"></td><td id="fancy_title_main"><div></div></td><td id="fancy_title_right"></td></tr></table>').appendTo('#fancy_title');
 		}
 
@@ -411,10 +411,10 @@
 			xScroll = document.documentElement.scrollLeft;
 		} else if (document.body) {
 			yScroll = document.body.scrollTop;
-			xScroll = document.body.scrollLeft;	
+			xScroll = document.body.scrollLeft;
 		}
 
-		return [xScroll, yScroll]; 
+		return [xScroll, yScroll];
 	};
 
 	$.fn.fancybox.getViewport = function() {
@@ -432,7 +432,7 @@
 	$.fn.fancybox.getCurrentItemNum = function() {
 	  return opts.itemNum;
 	};
-	
+
 	$.fn.fancybox.defaults = {
 		hideOnContentClick:	false,
 		zoomSpeedIn:		500,
